@@ -29,8 +29,8 @@ public class PersonServiceImpl implements PersonService {
 
         Person person = new Person(
                 personDTO.getName(),
-                personDTO.getEmail(),
-                personDTO.getPassword()
+                personDTO.getEmail()
+            
         );
         personRepository.save(person);
         return person.getName();
