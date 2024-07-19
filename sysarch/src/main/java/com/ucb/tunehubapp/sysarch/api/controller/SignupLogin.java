@@ -5,6 +5,7 @@ import com.ucb.tunehubapp.sysarch.api.model.Campspot;
 import com.ucb.tunehubapp.sysarch.api.model.Login;
 import com.ucb.tunehubapp.sysarch.api.model.Person;
 import com.ucb.tunehubapp.sysarch.dto.PersonDTO;
+import com.ucb.tunehubapp.sysarch.dto.LoginDTO;
 import com.ucb.tunehubapp.sysarch.repo.CampspotRepo;
 import com.ucb.tunehubapp.sysarch.repo.PersonRepo;
 import com.ucb.tunehubapp.sysarch.service.PersonService;
