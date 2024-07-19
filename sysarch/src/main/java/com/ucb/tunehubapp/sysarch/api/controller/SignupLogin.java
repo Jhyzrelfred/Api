@@ -45,14 +45,16 @@ public class SignupLogin {
         }
     }
 
-    @PostMapping("/Login")
-    public ResponseEntity<Response> Login(@RequestParam String name, @RequestParam String email, @RequestParam String password) {
-        if (name == null || name.isEmpty() || email == null || email.isEmpty() || password == null || password.isEmpty()) {
+     @PostMapping("/Login")
+    public ResponseEntity<Response> Login(@RequestBody LoginDTO loginDTO) {
+        if (loginDTO.getName() == null || loginDTO.getName().isEmpty() ||
+                loginDTO.getEmail() == null || loginDTO.getEmail().isEmpty() ||
+                loginDTO.getPassword() == null || loginDTO.getPassword().isEmpty()) {
             Response response = new Response("Either of the parameters is null or empty", null);
             return ResponseEntity.badRequest().body(response);
         }
 
-        Optional<Person> person = personService.getPerson(name, email, password);
+        Optional<Person> person = personService.getPerson(loginDTO.getName(),loginDTO.getEmail(),loginDTO.getPassword() );
         if (person.isPresent()) {
             Response response = new Response("Login successful", person.get());
             return ResponseEntity.ok(response);
